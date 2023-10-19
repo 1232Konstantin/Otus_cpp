@@ -8,7 +8,7 @@ int main() {
     std::vector<boost::asio::ip::address_v4> ip_pool;
 
     try {
-        for (std::string line; std::getline(std::cin, line);) { // Читаем адреса как беззнаковые 4 байтные числа
+        for (std::string line; std::getline(std::cin, line);) { // Читаем адреса как беззнаковые 4 байтные числа  //Кonstantin: Кажется комментарий не соответствует действительности (читаем как строки)
             std::vector<std::string> result;
             boost::split(result, line, boost::is_any_of("\t"));
             ip_pool.push_back(boost::asio::ip::address_v4::from_string(result.at(0)));
@@ -36,6 +36,6 @@ int main() {
     } catch(const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
-
+    //Кonstantin: Компактная реализация, отличающаяся высоким укровнем использования стандартных библиотек.  
     return 0;
 }
